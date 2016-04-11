@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CAC Research and Creation Fellowship Application Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+    body {
+        color: #000;
+        font-family: helvetica;
+        font-size: 16px;
+        margin: 0px;
+    }
+    
+    #wrapper {
+        width: 40%;
+        padding-left: 20px;
+        padding-bottom: 50px;
+        margin-top: 20px;
+    }
+    
+    #input-item {
+        padding-top: 20px;
+        font-size: 22px;
+    }
+    
+    #input-item input {
+        width: 300px;
+        height: 25px;
+        font-size: 20px;
+    }
+    
+    #input-item input[type="submit"] {
+        width: 100px;
+        height: 40px;
+        font-size: 22px;
+    }
+    
+    #text-field {
+        padding-top: 10x;
+        display: inline-block;
+        position: relative;
+        float: right;
+    }
+    
+    hr {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    #cac{
+    	font-size: 72px;
+    }
+    #titles {
+        width: 97%;
+        border-style: solid;
+        border-width: 1px;
+        padding: 10px;
+        font-size: 18px;
+        background-color: #222;
+        color: #ddd;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- <img src="images/logo.png"> -->
+        <div id="titles">
+            <h3>Dear Juror:</h3>
+        	<p>Welcome to the CAC's Research & Creation application review platform. Please login with the provided username and password</p>   
+        </div>
+        <form method="post" enctype="multipart/form-data" action="/review">
+            <div id="input-item">
+                <strong>login: </strong>
+                <div id="text-field">
+                    <input type="text" name="login" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>password: </strong>
+                <div id="text-field">
+                    <input type="password" name="pass" required>
+                </div>
+            </div>
+            <hr>
+            
+            <div id="input-item">
+                <input type="submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+    "name": "cac-rc-app",
+    "version": "0.0.0",
+    "description": "online appication form",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "fito_segrera",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fitosegrera/cac-rc-application.git"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "connect-multiparty": "^2.0.0",
+        "express": "^4.13.4",
+        "mkdirp": "^0.5.1",
+        "redis": "^2.6.0-1",
+        "socket.io": "^1.4.5"
+    }
+}

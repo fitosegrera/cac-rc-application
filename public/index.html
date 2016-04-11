@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CAC Research and Creation Fellowship Application Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src='//localhost:3300/socket.io/socket.io.js'></script>
+    <style>
+    body {
+        color: #000;
+        font-family: helvetica;
+        font-size: 16px;
+        margin: 0px;
+    }
+    
+    #wrapper {
+        width: 40%;
+        padding-left: 20px;
+        padding-bottom: 50px;
+    }
+    
+    #input-item {
+        padding-top: 40px;
+        font-size: 22px;
+        padding-left: 5px;
+    }
+    
+    #input-item input {
+        width: 300px;
+        height: 25px;
+        font-size: 20px;
+    }
+    
+    #input-item input[type="submit"] {
+        width: 100px;
+        height: 40px;
+        font-size: 22px;
+    }
+    
+    #text-field {
+        padding-top: 10x;
+        display: inline-block;
+        position: relative;
+        float: right;
+    }
+    
+    hr {
+        margin-top: 30px;
+        width: 100%;
+    }
+    
+    textarea {
+        width: 300px;
+        height: 130px;
+        font-size: 20px;
+    }
+    
+    #guidelines {
+        width: 97%;
+        border-style: solid;
+        border-width: 1px;
+        padding: 10px;
+        font-size: 18px;
+        background-color: #eee;
+        /*color: #ddd;*/
+    }
+    
+    select {
+        width: 300px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    h2 {
+        color: red;
+    }
+    #timeLeft{
+    	display: inline-block;
+    }
+    #titles{
+    	line-height: 10px;
+        padding-left: 10px;
+    }
+
+    a{
+        color:#FC8E44;
+    }
+
+    a:visited{
+        color:#FC8E44;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- <img src="images/logo.png"> -->
+        <div id="titles">
+            <img src="images/logo.png">
+        	<h1>Research & Creation Application Form / 2016</h1>
+        	<h2>Remaining Time Until Deadline: <p id="timeLeft"></p> </h2>
+        </div>
+        <div id="guidelines">
+            <strong><p>Please answer and complete the following application form. Take in account the following guidelines:</p></strong>
+            <p><strong>1.</strong> All fields are required except the ones marked as (optional).</p>
+            <p> <strong>2.</strong> If the applicant does not host an online portfolio website, he/she must provide a list of URLs using the "Other Links (optional)" field in this form. We recommend to use <a href="https://www.vimeo.com/" target="_blank">vimeo</a> for video samples, <a href="https://www.flickr.com/" target="_blank">flickr</a> and <a href="https://www.soundcloud.com/" target="_blank">soundcloud</a> for audio samples.</p>
+            <p><strong>3.</strong> If the applicant does have an online portfolio and still wants to provide extra URLs for additional work samples he/she is free to do so by using the "Other Links (optional)" field in this form.</p>
+            <p>
+                <strong>4.</strong> The Project Proposal PDF should be uploaded as a clear document containing at least the following items:
+                <ul>
+                    <li>Genral Description of the Project</li>
+                    <li>Conceptual Framework</li>
+                    <li>Technical Description (software / hardware)</li>
+                    <li>Based on CAC_LAB's current research interests (as expressed in the open call document under the section "About CAC_LAB"), explain how your project contributes to the development of the LAB's present needs (Technically and Conceptually).</li>
+                    <li>Detailed Time Schedule and Development Plan</li>
+                    <li>Budget</li>
+                </ul>
+            </p>
+            <p><strong>5.</strong> Finally, please upload your CV / Resume as a PDF.</p>
+            <p><strong>IMPORTANT NOTE:</strong> Please fill out this form when you have all the information ready. The system DOES NOT save incomplete submissions</p>
+        </div>
+        <form method="post" enctype="multipart/form-data" action="/submitted">
+            <div id="input-item">
+                <strong>Full Name: </strong>
+                <div id="text-field">
+                    <input type="text" name="name" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Email: </strong>
+                <div id="text-field">
+                    <input type="email" name="email" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Nationality: </strong>
+                <div id="text-field">
+                    <input type="text" name="nationality" required>
+                </div>
+            </div>
+            <hr>
+            <!-- <input type="file" name="thumbnail"> -->
+            <div id="input-item">
+                <strong>Date of Birth (dd/mm/yy): </strong>
+                <div id="text-field">
+                    <input type="text" name="birthdate" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Full Address: </strong>
+                <div id="text-field">
+                    <input type="textarea" name="address" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Phone: </strong>
+                <div id="text-field">
+                    <input type="text" name="phone" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Country of Residence: </strong>
+                <div id="text-field">
+                    <input type="text" name="residence" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Website (http://my-portfolio.com): </strong>
+                <div id="text-field">
+                    <input type="url" name="website">
+                </div>
+            </div>
+            <hr>
+            <div id="input-item" style="height:120px">
+                <strong>Bio (max: 150 words): </strong>
+                <div id="text-field">
+                    <textarea name="bio" required></textarea>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item" style="height:120px">
+                <strong>List your technical skills: </strong>
+                <div id="text-field">
+                    <textarea name="skills" required></textarea>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Project's Name: </strong>
+                <div id="text-field">
+                    <input type="text" name="projectName" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item" style="height:120px">
+                <strong>Abstract (max: 200 words): </strong>
+                <div id="text-field">
+                    <textarea name="abstract" required></textarea>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Focus Area: </strong>
+                <div id="text-field">
+                    <select name="focus" required>
+                        <option value="0" selected="selected">[choose yours]</option>
+                        <option value="1">Virtual / Augmented Reality</option>
+                        <option value="2">The Digital Brain</option>
+                        <option value="3">Wearable Computing and Physical Interfaces</option>
+                        <option value="4">Sensory Immersion</option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item" style="height:120px">
+                <strong>Other Links (optional): </strong>
+                <div id="text-field">
+                    <textarea name="extra"></textarea>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>Project Proposal PDF: </strong>
+                <div id="text-field">
+                    <input type="file" name="proposal" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <strong>CV / Resume PDF: </strong>
+                <div id="text-field">
+                    <input type="file" name="cv" required>
+                </div>
+            </div>
+            <hr>
+            <div id="input-item">
+                <input onclick="validate()" type="submit">
+            </div>
+        </form>
+        <script type="text/javascript">
+        function validate() {
+            var txt = "";
+            if (document.getElementByTagName("iputn").validity.rangeOverflow) {
+                txt = "Value too large";
+            }
+            document.getElementById("demo").innerHTML = txt;
+        }
+        var socket = io.connect('//localhost:3300');
+        socket.on('time', function(data) {
+            document.getElementById("timeLeft").innerHTML = data;
+        });
+        </script>
+    </div>
+</body>
+
+</html>

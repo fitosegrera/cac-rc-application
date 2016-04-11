@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CAC Research and Creation Fellowship Application Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script src='//localhost:3300/socket.io/socket.io.js'></script>
+    <style>
+    body {
+        color: #000;
+        font-family: helvetica;
+        font-size: 16px;
+        margin: 0px;
+    }
+    
+    #wrapper {
+        width: 40%;
+        padding-left: 20px;
+        padding-bottom: 50px;
+        margin-top: 20px;
+    }
+    
+    #applicant {
+        font-size: 20px;
+    }
+
+    h2{
+        background-color: #222;
+        color: #ddd;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="applicant">
+            <div id="personal">
+                <h2>Personal Info:</h2></div>
+            <div id="work">
+                <h2>Project:</h2></div>
+            <div id="files">
+                <h2>Attachments:</h2></div>
+        </div>
+    </div>
+    <script>
+    var socket = io.connect('//localhost:3300');
+    socket.on('applicant', function(obj) {
+        console.log(obj);
+        createNewElement("personal", "Name", obj.data.name, false, obj);
+        createNewElement("personal", "Email", obj.data.email, false, obj);
+        createNewElement("personal", "Birth Date", obj.data.birthdate, false, obj);
+        createNewElement("personal", "Nationality", obj.data.nationality, false, obj);
+        createNewElement("personal", "Phone", obj.data.phone, false, obj);
+        createNewElement("personal", "Address", obj.data.address, false, obj);
+        createNewElement("personal", "Country of Residence", obj.data.residence, false, obj);
+        createNewElement("personal", "Bio", obj.data.bio, false, obj);
+        createNewElement("personal", "Website", obj.data.website, true, obj);
+        createNewElement("personal", "Skills", obj.data.skills, false, obj);
+        createNewElement("personal", "Extra Info", obj.data.extra, false, obj);
+        createNewElement("work", "Title", obj.data.projectName, false, obj);
+        createNewElement("work", "Abstract", obj.data.abstract, false, obj);
+        createNewElement("work", "Focus Research Area", obj.data.focus, false, obj);
+        createNewElement("files", "Proposal", obj.files.proposal.originalFilename, true, obj);
+        createNewElement("files", "CV", obj.files.cv.originalFilename, true, obj);
+        socket.close();
+    });
+
+    function createNewElement(type, key, val, link, obj) {
+        var div = document.getElementById(type);
+        if (!link) {
+            if (key != "Focus Research Area") {
+                var element = document.createElement('p');
+                element.innerHTML = "<strong>" + key + ":</strong> " + val + "<br>";
+                div.appendChild(element);
+            } else {
+                var toWrite = "";
+                if (val == 1) {
+                    toWrite = "Virtual / Augmented Reality";
+                }
+                if (val == 2) {
+                    toWrite = "The Digital Brain";
+                }
+                if (val == 3) {
+                    toWrite = "Wearable Computing and Physical Interfaces";
+                }
+                if (val == 4) {
+                    toWrite = "Sensory Immersion";
+                }
+                var element = document.createElement('p');
+                element.innerHTML = "<strong>" + key + ":</strong> " + toWrite + "<br>";
+                div.appendChild(element);
+            }
+        } else {
+            var path = "";
+            if (key == "Proposal") {
+                path = "../uploads/" + obj.data.name + "/" + val;
+            } else if (key == "CV") {
+                path = "../uploads/" + obj.data.name + "/" + val;
+            } else {
+                path = val;
+            }
+            var element = document.createElement('p');
+            var link = document.createElement('a');
+            element.innerHTML = "<strong>" + key + ":</strong> ";
+            link.innerHTML = val + "<br>";
+            link.href = path;
+            link.target = "_blank";
+            element.appendChild(link);
+            div.appendChild(element);
+        }
+    }
+    </script>
+</body>
+
+</html>
