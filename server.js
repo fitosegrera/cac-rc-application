@@ -22,9 +22,10 @@ client.auth("cac_rc_2016", function(err) {
 // serve files
 app.use('/images', express.static(__dirname + '/public/images'));
 app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use('/js', express.static(__dirname + '/public/js'));
 
 // stablish a deadline for the time counter
-var dString = "june, 1, 2016";
+var dString = "May, 15, 2016";
 
 //render the form in the file index.html
 app.get('/', function(req, res) {
